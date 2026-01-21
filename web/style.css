@@ -1,0 +1,346 @@
+:root {
+    --bg-color: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --dot-filled: #ffffff;
+    --dot-empty: #333333;
+    --dot-today: #666666;
+    --phone-border: #222222;
+    --phone-bg: #050505;
+    --accent: #ffffff;
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Product */
+.product {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.product-header {
+    text-align: center;
+}
+
+.product-header h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.product-header p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Phone Mockup */
+.phone-mockup {
+    width: 280px;
+    height: 580px;
+    border: 12px solid var(--phone-border);
+    border-radius: 48px;
+    background-color: var(--phone-bg);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px #111;
+}
+
+.screen-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px; /* Space for clock */
+}
+
+/* Status Bar & Lock Screen details logic would be CSS-simulated or static for simplicity */
+.status-bar {
+    position: absolute;
+    top: 14px;
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-icons {
+    display: flex;
+    gap: 6px;
+}
+
+.icon {
+    width: 16px;
+    height: 12px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.lock-screen-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#lockDate {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+#lockTime {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+/* Grid */
+.grid-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 32px;
+}
+
+.dot-grid {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr); /* 13x28 approx for 364+ */
+    gap: 8px;
+    width: 100%;
+    align-content: start;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--dot-empty);
+    transition: background-color 0.3s ease;
+}
+
+.dot.filled {
+    background-color: var(--dot-filled);
+}
+
+.dot.today {
+    background-color: var(--dot-today);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Bottom Controls */
+.bottom-controls {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    padding: 0 36px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+}
+
+.home-indicator {
+    position: absolute;
+    bottom: 8px;
+    width: 100px;
+    height: 4px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* Stats */
+.stats-display {
+    font-family: 'Inter', monospace; /* Monospace for numbers looks techy */
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.stats-display span {
+    color: var(--text-primary);
+}
+
+/* Install */
+.btn-install {
+    background: var(--text-primary);
+    color: var(--bg-color);
+    border: none;
+    padding: 14px 48px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.btn-install:active {
+    transform: scale(0.96);
+}
+
+/* Reviews */
+.reviews {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reviews h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.review-item {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #111;
+    border: 1px solid #222;
+    padding: 32px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 360px;
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #444;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-body p {
+    margin-bottom: 4px;
+    font-size: 15px;
+    color: #ccc;
+}
+
+.modal-body .spacer {
+    height: 16px;
+}
+
+.price {
+    font-weight: 600;
+    color: #fff !important;
+}
+
+.modal-actions {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.action-btn.primary {
+    background: #fff;
+    color: #000;
+}
+
+.action-btn.secondary {
+    background: transparent;
+    color: #666;
+    border: 1px solid #333;
+}

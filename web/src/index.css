@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #050505;
+    --card-bg: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent-color: #ffffff;
+    --font-family: 'Inter', sans-serif;
+    --safe-area-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+/* Premium Details */
+::selection {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Layout */
+.landing-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    padding-bottom: calc(60px + var(--safe-area-bottom));
+}
+
+/* Header */
+.site-header {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    color: #fff;
+    opacity: 0.8;
+    animation: fadeIn Down 0.8s ease-out forwards;
+}
+
+/* Hero */
+.hero-section {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero-section h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+    color: #fff;
+    max-width: 800px;
+}
+
+.hero-section p {
+    font-size: 18px;
+    color: #888;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 48px;
+    max-width: 500px;
+}
+
+/* Showcase */
+.showcase-container {
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.showcase-image {
+    width: 100%;
+    max-width: 300px;
+    /* Slight increase for better presence */
+    height: auto;
+    border-radius: 44px;
+    border: 1px solid #222;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.showcase-image:hover {
+    transform: translateY(-5px);
+}
+
+/* Install Button */
+.install-button {
+    background: #111;
+    color: #fff;
+    border: 1px solid #222;
+    padding: 16px 24px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.install-button:hover {
+    background: #1a1a1a;
+    border-color: #333;
+    transform: scale(1.02);
+}
+
+.install-button:active {
+    transform: scale(0.98);
+    background: #0f0f0f;
+}
+
+.install-button span {
+    flex: 1;
+    text-align: center;
+    padding-left: 12px;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 60px;
+    color: #444;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* 1000% Mobile Responsiveness */
+@media (max-width: 600px) {
+    .landing-page {
+        padding: 40px 20px;
+        min-height: 100dvh;
+        /* Dynamic viewport height */
+        padding-bottom: calc(40px + var(--safe-area-bottom));
+    }
+
+    .site-header {
+        margin-bottom: 24px;
+        font-size: 13px;
+    }
+
+    .hero-section h1 {
+        font-size: 40px;
+        /* Scaled down for mobile */
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+    }
+
+    .hero-section p {
+        font-size: 16px;
+        margin-bottom: 32px;
+        padding: 0 10px;
+    }
+
+    .showcase-image {
+        max-width: 260px;
+        /* Slightly smaller on purely mobile */
+        border-radius: 38px;
+    }
+
+    .install-button {
+        padding: 14px 20px;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 360px) {
+    .landing-page {
+        padding: 30px 16px;
+    }
+
+    .hero-section h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    /* Small phones (SE, etc) */
+    .hero-section h1 {
+        font-size: 34px;
+    }
+
+    .showcase-image {
+        max-width: 240px;
+    }
+}
+
+/* Payment Modal Cleaned Up */
